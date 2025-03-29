@@ -41,7 +41,7 @@ The repository contains:
 ## **Installation**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/AirQualityPrediction-LSTM.git
+   git clone https://github.com/mdshafaque56/AirQualityPrediction-LSTM.git
    cd AirQualityPrediction-LSTM
    ```
 
@@ -94,14 +94,11 @@ We welcome contributions to improve the project! Feel free to submit issues or p
 ---
 
 ## **Contact**
-For questions or collaborations, reach out to [Your Name] at [Your Email].
+For questions or collaborations, reach out to me at www.linkedin.com/in/md-shafaque-37973b280.
 
-GitHub Repository URL: [Insert GitHub Link]
+GitHub Repository URL:  mdshafaque56/AirQualityPrediction-LSTM
 
 Citations:
 [1] https://pplx-res.cloudinary.com/image/upload/v1743232821/user_uploads/SuZouuvrQzMnXDs/Screenshot-2025-03-29-124958.jpg
 [2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/51288755/1742cf91-222e-4861-9b6c-de4252d8a4c7/Air-Quality-Prediction-Using-LSTM-Networks-A-Deep-Learning-Approach.pdf
 [3] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/51288755/1742cf91-222e-4861-9b6c-de4252d8a4c7/Air-Quality-Prediction-Using-LSTM-Networks-A-Deep-Learning-Approach.pdf
-
----
-Answer from Perplexity: pplx.ai/share
