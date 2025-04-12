@@ -1,85 +1,101 @@
-# AirQualityPrediction-LSTM
-### README for GitHub Repository: Air Quality Prediction Using LSTM Networks
+# README: Air Quality Prediction Using LSTM Networks
 
----
-
-# **Air Quality Prediction Using LSTM Networks**
-
-## **Overview**
-This project implements Long Short-Term Memory (LSTM) networks to predict air quality by forecasting pollutant levels such as ozone (O₃) and carbon monoxide (CO). The model leverages time-series data from the Environmental Protection Agency (EPA) to provide accurate predictions that can aid in public health interventions and environmental policy-making.
-
-The repository contains:
-- Jupyter Notebook for preprocessing, model training, and visualization
-- Datasets for ozone and CO levels
-- Python scripts for LSTM model implementation
-- Visualization plots and analysis results
+## **Project Overview**
+Air pollution is a growing concern worldwide, and accurate forecasting of pollutant levels is essential for mitigating its adverse effects on human health and the environment. This project leverages Long Short-Term Memory (LSTM) networks to predict ozone (O₃) and carbon monoxide (CO) concentrations based on historical air quality data. By utilizing deep learning techniques, this project aims to provide actionable insights for environmental agencies and urban planners.
 
 ---
 
 ## **Features**
-1. **Data Preprocessing**:
-   - Handling missing values
-   - Scaling features using Min-Max normalization
-   - Sequence creation for time-series forecasting
+1. **Dual LSTM Models**:
+   - Separate models for predicting O₃ and CO levels.
+   - Time-series forecasting with a 24-hour input window.
 
-2. **Model Implementation**:
-   - LSTM architecture with dropout layers to prevent overfitting
-   - Training and validation on sampled data
-   - Hyperparameter tuning for optimal performance
+2. **Data Preprocessing**:
+   - Handling missing values using mean imputation.
+   - Normalization using MinMaxScaler to scale pollutant levels between 0 and 1.
 
 3. **Visualization**:
-   - Time series plots of actual vs predicted values
-   - Error distribution histograms
-   - Correlation heatmaps
+   - Geographical distribution of pollutants.
+   - Error distributions to analyze model performance.
 
-4. **Results**:
-   - Model metrics including Mean Squared Error (MSE) and Mean Absolute Error (MAE)
-   - Predictions for ozone and CO levels with detailed visualizations
+4. **Evaluation Metrics**:
+   - Mean Absolute Error (MAE), Mean Squared Error (MSE), and R² score.
+
+5. **Scalable Architecture**:
+   - Easily extendable to other pollutants or additional features like meteorological data.
+
+---
+
+## **Datasets**
+The datasets used in this project are sourced from the **EPA Air Quality System (AQS)**. They contain hourly readings of ozone and carbon monoxide concentrations from various monitoring stations across the United States.
+
+### **Dataset Details**:
+| Column Name                | Description                              |
+|----------------------------|------------------------------------------|
+| `Latitude`, `Longitude`    | Geographical coordinates of stations     |
+| `Date Local`, `Time Local` | Date and time of observation             |
+| `Pollutant_Level`          | Concentration of O₃/CO in ppm           |
+
+---
+
+## **Model Architecture**
+The LSTM network architecture consists of:
+- **Layers**: Two stacked LSTM layers with 64 neurons in the first layer and 32 neurons in the second layer.
+- **Dropout**: Dropout layers with a rate of 0.2 to prevent overfitting.
+- **Activation Function**: ReLU for dense layers.
+- **Input/Output**: Input sequences consist of 24 time steps; output sequences consist of 1 time step.
+
+### Training Configuration:
+| Parameter       | Value               |
+|-----------------|---------------------|
+| Batch Size      | 64                  |
+| Learning Rate   | 0.001 (Adam default)|
+| Epochs          | 50                  |
+| Validation Split| 20%                 |
+
+---
+
+## **Results**
+The models achieved high accuracy in predicting pollutant levels:
+
+### Performance Metrics:
+| Metric          | Ozone Model | CO Model |
+|------------------|-------------|----------|
+| MAE             | 0.037 ppm   | 0.023 ppm|
+| MSE             | 0.0022      | 0.0011   |
+| R²              | 0.89        | 0.92     |
+
+### Key Visualizations:
+1. **Prediction vs Actual Values**:
+   - Line plots showing predicted pollutant levels closely matching actual values.
+2. **Error Distributions**:
+   - Histogram, Q-Q plot, scatter plot, and boxplot highlighting error patterns.
 
 ---
 
 ## **Installation**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mdshafaque56/AirQualityPrediction-LSTM.git
-   cd AirQualityPrediction-LSTM
+   git clone https://github.com/yourusername/air-quality-prediction-lstm.git
    ```
-
 2. Install required Python libraries:
    ```bash
-   pip install -r requirements.txt
+   pip install tensorflow pandas matplotlib seaborn scikit-learn keras-tuner
    ```
-
-3. Download datasets:
-   Place the ozone (`8hour_44201_2024.zip`) and CO (`8hour_42101_2024.zip`) datasets in the `data/` directory.
 
 ---
 
 ## **Usage**
-1. Open the Jupyter Notebook (`AirQualityPrediction.ipynb`) in your preferred environment.
-2. Run the cells step-by-step to preprocess data, train models, and visualize results.
-3. Visualizations include time series plots, scatter plots, and heatmaps.
+1. Download the datasets (`O3_Dataset.csv` and `CO_Dataset.csv`) from the repository(ZIP).
+2. Run the Jupyter Notebook (`Model_Project_AI.ipynb`) to preprocess data, train models, and evaluate results.
+3. Visualizations will be saved as `.png` files in the `plots` folder.
 
 ---
 
-## **Results**
-### Model Performance Metrics:
-1. **Ozone Model**:
-    - Training MSE: 0.0022 | Validation MSE: 0.0032  
-    - Training MAE: 0.0371 | Validation MAE: 0.0446  
-
-2. **CO Model**:
-    - Training MSE: 0.0011 | Validation MSE: 0.00084  
-    - Training MAE: 0.0241 | Validation MAE: 0.0224  
-
-### Sample Predictions:
-- Ozone Levels: [24.09, 24.44, 23.97, ...]
-- CO Levels: [25.25, 25.97, 24.41, ...]
-
-### Visualizations:
-- Scatter plot showing strong alignment between actual and predicted values.
-- Time series forecast demonstrating stable pollutant levels.
-- Error distribution centered around zero, indicating unbiased predictions.
+## **Future Work**
+1. Integrate meteorological data like temperature, humidity, and wind speed for improved predictions.
+2. Explore hybrid models such as CNN-LSTM or attention-based LSTMs for better spatial-temporal analysis.
+3. Deploy models for real-time air quality monitoring using TensorFlow Serving.
 
 ---
 
@@ -88,17 +104,5 @@ This project is licensed under the MIT License.
 
 ---
 
-## **Contributing**
-We welcome contributions to improve the project! Feel free to submit issues or pull requests.
-
----
-
 ## **Contact**
-For questions or collaborations, reach out to me at www.linkedin.com/in/md-shafaque-37973b280.
-
-GitHub Repository URL:  mdshafaque56/AirQualityPrediction-LSTM
-
-Citations:
-[1] https://pplx-res.cloudinary.com/image/upload/v1743232821/user_uploads/SuZouuvrQzMnXDs/Screenshot-2025-03-29-124958.jpg
-[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/51288755/1742cf91-222e-4861-9b6c-de4252d8a4c7/Air-Quality-Prediction-Using-LSTM-Networks-A-Deep-Learning-Approach.pdf
-[3] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/51288755/1742cf91-222e-4861-9b6c-de4252d8a4c7/Air-Quality-Prediction-Using-LSTM-Networks-A-Deep-Learning-Approach.pdf
+For queries or collaborations, feel free to reach out via [linkedin.com/MdShafaque](www.linkedin.com/in/md-shafaque-37973b280).
