@@ -105,4 +105,4 @@ This project is licensed under the MIT License.
 ---
 
 ## **Contact**
-For queries or collaborations, feel free to reach out via [linkedin.com/MdShafaque](www.linkedin.com/in/md-shafaque-37973b280).
+For queries or collaborations, feel free to reach out via www.linkedin.com/in/md-shafaque-37973b280
